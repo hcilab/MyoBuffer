@@ -49,12 +49,12 @@ class MyoBuffer {
 
 
 private class EmgCollector implements Runnable {
-  MyoEMG myoEmg;
+  LibMyoStream myoStream;
   ConcurrentLinkedQueue<Sample> sampleWindow;
   long windowSizeMillis;
 
   public EmgCollector(PApplet mainObject, ConcurrentLinkedQueue<Sample> sampleWindow, long windowSizeMillis) throws MyoNotDetectectedError {
-    this.myoEmg = new MyoEMG(mainObject);
+    this.myoStream = new LibMyoStream(mainObject);
     this.sampleWindow = sampleWindow;
     this.windowSizeMillis = windowSizeMillis;
   }
@@ -62,7 +62,7 @@ private class EmgCollector implements Runnable {
   public void run() {
     while (true) {
       // insert new reading
-      Sample s = myoEmg.readSample();
+      Sample s = myoStream.readSample();
       sampleWindow.add(s);
 
       // maintain window

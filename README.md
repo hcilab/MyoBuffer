@@ -6,4 +6,4 @@ A reusable tool for the Myo armband that maintains a buffered window of EMG samp
 
 Currently using:
   
-  - version 1.1 of the MyoStreamer project (https://github.com/hcilab/MyoStreamer)
+  - version 1.2 of the MyoStream project (https://github.com/hcilab/MyoStream)
